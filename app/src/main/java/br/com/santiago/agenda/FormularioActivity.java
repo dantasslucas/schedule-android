@@ -42,6 +42,7 @@ public class FormularioActivity extends AppCompatActivity {
             helper.preencheFormulario(aluno);
         }
         Button btnFoto = (Button) findViewById(R.id.formulario_btnFoto);
+        //Estudar esse trexo do código
         btnFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +58,7 @@ public class FormularioActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //Estudar esse trexo do código
         //Abrir foto tirada
         if (requestCode == CODIGO_CAMERA && resultCode== Activity.RESULT_OK){
             ImageView foto = (ImageView) findViewById(R.id.formulario_foto);
