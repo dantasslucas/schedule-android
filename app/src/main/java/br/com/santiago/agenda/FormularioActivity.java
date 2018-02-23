@@ -35,7 +35,7 @@ public class FormularioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
 
         helper = new FormularioHelper(this);
-
+        ImageView foto = (ImageView) findViewById(R.id.formulario_foto);
         Intent intent = getIntent();
         Aluno aluno = (Aluno) intent.getSerializableExtra("aluno");
         if (aluno != null){
@@ -61,11 +61,7 @@ public class FormularioActivity extends AppCompatActivity {
         //Estudar esse trexo do código
         //Abrir foto tirada
         if (requestCode == CODIGO_CAMERA && resultCode== Activity.RESULT_OK){
-            ImageView foto = (ImageView) findViewById(R.id.formulario_foto);
-            Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
-            Bitmap bitmapReduzido = Bitmap.createScaledBitmap(bitmap,300,300,true);
-            foto.setImageBitmap(bitmapReduzido);
-            foto.setScaleType(ImageView.ScaleType.FIT_XY);
+            helper.carregaImagem(caminhoFoto);
         }
     }
 
