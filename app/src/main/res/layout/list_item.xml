@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/item_telefone"
             android:text="Telefone"
-            android:paddingLeft="16dp"
+            android:paddingLeft="10dp"
             android:paddingTop="8dp"/>
     </LinearLayout>
 

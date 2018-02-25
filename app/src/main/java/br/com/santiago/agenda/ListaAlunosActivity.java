@@ -67,7 +67,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         List<Aluno> alunos = dao.buscaAlunos();
         dao.close();
 
-        //Responsável em converter o Array de String para view
         AlunosAdapter adapter = new AlunosAdapter(this,alunos);
         listaAlunos.setAdapter(adapter);
     }
