@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import br.com.santiago.agenda.adapter.AlunosAdapter;
 import br.com.santiago.agenda.dao.AlunoDAO;
 import br.com.santiago.agenda.modelo.Aluno;
 
@@ -67,7 +68,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
         dao.close();
 
         //Responsável em converter o Array de String para view
-        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos);
+        AlunosAdapter adapter = new AlunosAdapter(this,alunos);
         listaAlunos.setAdapter(adapter);
     }
 
