@@ -34,7 +34,12 @@ public class ListaAlunosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
-
+        //Pedindo permissão SMS
+        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.RECEIVE_SMS)
+                !=PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(ListaAlunosActivity.this,
+                    new String[]{Manifest.permission.RECEIVE_SMS},124);
+        }
 
         listaAlunos = (ListView) findViewById(R.id.lista_alunos);
         //Click item lista
@@ -96,8 +101,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
                     intentLigar.setData(Uri.parse("tel:" + aluno.getTelefone()));
                     startActivity(intentLigar);
                 }
-
-
                 return false;
             }
         });
