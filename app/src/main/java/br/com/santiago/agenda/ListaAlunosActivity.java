@@ -25,6 +25,7 @@ import br.com.santiago.agenda.adapter.AlunosAdapter;
 import br.com.santiago.agenda.converter.AlunoConverter;
 import br.com.santiago.agenda.dao.AlunoDAO;
 import br.com.santiago.agenda.modelo.Aluno;
+import br.com.santiago.agenda.task.EnviarAlunosTask;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -93,14 +94,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_enviar_notas:
-                AlunoDAO dao =new AlunoDAO(this);
-                List<Aluno> alunos= dao.buscaAlunos();
-                dao.close();
-                AlunoConverter conversor = new AlunoConverter();
-                String json = conversor.converterParaJSON(alunos);
-                WebClient client = new WebClient();
-                String resposta = client.post(json);
-                Toast.makeText(this,resposta,Toast.LENGTH_LONG).show();
+                    new EnviarAlunosTask(this).execute();
                 break;
         }
         return super.onOptionsItemSelected(item);
